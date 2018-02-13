@@ -29,3 +29,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Useful links
 - How to configure wallaby for the Angular CLI https://github.com/wallabyjs/ngCliWebpackSample
+- JSON Serer docs https://github.com/typicode/json-server
+- Angular testing docs https://angular.io/guide/testing
+- Jest Angular library docs https://github.com/thymikee/jest-preset-angular
