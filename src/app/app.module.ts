@@ -8,7 +8,7 @@ import { UserEditFormComponent } from './components/user-edit-form/user-edit-for
 import { UserComponent } from './containers/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
