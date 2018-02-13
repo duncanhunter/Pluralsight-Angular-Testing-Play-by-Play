@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    justify-content: center;
+  }
+
+  p { 
+      color: red;   
+  }
+
+  input {
+    padding: 13px;
+}

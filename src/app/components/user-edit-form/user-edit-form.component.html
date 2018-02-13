@@ -1,0 +1,7 @@
+<form [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
+    <input type="text" formControlName="name">
+    <button type="submit">Submit</button>
+    <p *ngIf="userForm.get('name').hasError('required')">
+        Name is required
+    </p>
+</form>

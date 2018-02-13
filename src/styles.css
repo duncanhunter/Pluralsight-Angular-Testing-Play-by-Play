@@ -1,0 +1,13 @@
+html * {
+    font-size: large;
+    font-family: roboto, sans-serif
+}
+
+button {
+    margin: 10px 0;
+    background-color: #00afee;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 15px;
+  }
