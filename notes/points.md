@@ -10,6 +10,7 @@
 
 
 ### 2 Introduction to a simple demo Angular application to test
+- start server!
 - Intentionally simple app with son server a list of users and edit or add them
 - Like this as it is template to service
 - http, async dom events, faking and e2e
@@ -29,6 +30,7 @@
 - Check the title 
 - Make a before each
 - Show karma running in browser
+- debug karma vs console.log
 
 ### 5 Mocking Angular dependencies
 - How to fake 
