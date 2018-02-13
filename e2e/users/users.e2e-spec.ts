@@ -16,15 +16,13 @@ describe('Users Page', () => {
 
   it(`should edit the first user`, async () => {
     page.navigateTo();
-    await page.clickFirstUser();
+    await page.getFirstUser().click();
     await browser.wait(EC.presenceOf(await page.getInputField()));
-    await page.clearInputField();
+    await page.getInputField().clear();
     await page.getInputField().sendKeys('duncan2');
-    await page.clickSubmitButton();
-    await browser.wait(EC.presenceOf(await page.selectFirstUser()));
-    browser.sleep(2000);
-    const userName = await page.selectFirstUserText();
-    expect(userName).toEqual('duncan2');
+    await page.getSubmitButton().click();
+    await browser.wait(EC.presenceOf(await page.getFirstUser()));
+    expect(await page.getFirstUser().getText()).toEqual('duncan2');
   });
 
 });
