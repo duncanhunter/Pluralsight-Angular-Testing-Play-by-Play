@@ -1,7 +1,9 @@
-<h1>
-    Users
+<div class="title">
+    <h1>
+        Users
+    </h1>
     <button class="add-button" [routerLink]="['/users', 0]">Add</button>
-</h1>
+</div>
 <div *ngFor="let user of users">
-    <button [routerLink]="['/users', user.id]" routerLinkActive="router-link-active">{{user.name}}</button>
+    <button class="user-button" [routerLink]="['/users', user.id]">{{user.name}}</button>
 </div>

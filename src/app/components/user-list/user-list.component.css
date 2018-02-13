@@ -9,10 +9,15 @@
 
   
   .add-button  {
-    margin: 5px 0;
+    margin: 5px;
     background-color: #e2e2e2;
     color: gray;
     border: none;
     border-radius: 2px;
     padding: 5px;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
   }
