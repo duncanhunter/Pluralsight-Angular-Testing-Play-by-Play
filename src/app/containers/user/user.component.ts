@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../user.service';
+import { UserService } from '../../services/user.service';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../../user';
+import { User } from '../../models/user';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { User } from '../../user';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-user-edit-form',
