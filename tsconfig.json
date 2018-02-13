@@ -11,6 +11,10 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [
+      "jest",
+      "jest-matchers"
+    ],
     "lib": [
       "es2017",
       "dom"

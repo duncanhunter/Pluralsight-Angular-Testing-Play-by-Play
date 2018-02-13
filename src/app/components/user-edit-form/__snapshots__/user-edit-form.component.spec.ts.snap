@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserEditFormComponent should have valid form 1`] = `
+<app-user-edit-form
+  save={[Function EventEmitter]}
+  userForm={[Function FormGroup]}
+>
+  <form
+    novalidate=""
+  >
+    
+      
+    <input
+      formcontrolname="name"
+      type="text"
+    />
+    
+      
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+    
+      
+    
+    
+  
+  </form>
+</app-user-edit-form>
+`;
+
+exports[`UserEditFormComponent should render markup from snapshot 1`] = `
+<app-user-edit-form
+  save={[Function EventEmitter]}
+  userForm={[Function FormGroup]}
+>
+  <form
+    novalidate=""
+  >
+    
+      
+    <input
+      formcontrolname="name"
+      type="text"
+    />
+    
+      
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+    
+      
+    
+    <p>
+      
+          Name is required
+      
+    </p>
+    
+  
+  </form>
+</app-user-edit-form>
+`;
