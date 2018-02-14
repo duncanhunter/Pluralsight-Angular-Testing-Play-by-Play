@@ -1,15 +1,79 @@
-import { async, ComponentFixture, TestBed, fakeAsync, discardPeriodicTasks, tick } from '@angular/core/testing';
-import { UsersComponent } from './users.component';
-import { UserService } from '../../services/user.service';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+// import { UsersComponent } from './users.component';
+// import { of } from 'rxjs/observable/of';
+// import { timer } from 'rxjs/observable/timer';
+// import { UserService } from '../../services/user.service';
+// import { mapTo } from 'rxjs/operators';
+
+// describe(`Users Component`, () => {
+//     let component: UsersComponent;
+//     const fakeUser = {id: 1, name: 'fake'};
+//     // const fakeUserService = {
+//     //     getUsers: () => of([fakeUser]),
+//     //     httpClient: {}
+//     // } as any;
+
+//     // const fakeUserService = jasmine.createSpyObj('userService', ['getUsers']);
+//     const userService = new UserService(null);
+//     beforeEach(() => {
+//         component = new UsersComponent(userService);
+//     });
+
+//     it(`should have a component`, () => {
+//         expect(component).toBeTruthy();
+//     });
+
+//     it(`should have a list of users`, () => {
+//         const spy = spyOn(userService, 'getUsers').and.returnValue(of([fakeUser]));
+//         component.ngOnInit();
+//         component.users$.subscribe(users => {
+//             console.log(users);
+//             expect(users).toEqual([fakeUser]);
+//             expect(spy).toHaveBeenCalled();
+//             expect(spy).toHaveBeenCalledWith();
+//             expect(spy).toHaveBeenCalledTimes(1);
+//         });
+//     });
+
+//     it(`should have a list of users`, (done) => {
+//         // const spy = spyOn(userService, 'getUsers').and.returnValue(of([fakeUser]));
+//         const spy = spyOn(userService, 'getUsers').and.returnValue(timer(1000).pipe(mapTo([fakeUser])));
+//         component.ngOnInit();
+//         component.users$.subscribe(users => {
+//             console.log(users);
+//             expect(users).toEqual([fakeUser]);
+//             done();
+//         });
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { of } from 'rxjs/observable/of';
 import { timer } from 'rxjs/observable/timer';
 import { mapTo } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import { By } from '@angular/platform-browser';
-import { RouterTestingModule } from '@angular/router/testing';
-
+import { async, ComponentFixture, TestBed, fakeAsync, discardPeriodicTasks, tick } from '@angular/core/testing';
+import { UsersComponent } from './users.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { HttpClient } from '@angular/common/http';
 import { UserListComponent } from '../../components/user-list/user-list.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
 
 describe('UsersComponent', () => {
     let component: UsersComponent;
@@ -23,16 +87,16 @@ describe('UsersComponent', () => {
             declarations: [UsersComponent, UserListComponent],
             providers: [
                 UserService,
-                { provide: HttpClient, useValue: {} }
-            ],
+                { provide: HttpClient, useValue: {} }],
             // schemas: [NO_ERRORS_SCHEMA]
-        }).compileComponents();
-        userService = TestBed.get(UserService);
+        })
+            .compileComponents();
     }));
 
     beforeEach(() => {
         fixture = TestBed.createComponent(UsersComponent);
         component = fixture.componentInstance;
+        userService = TestBed.get(UserService);
         // fixture.detectChanges();
     });
 
@@ -40,28 +104,33 @@ describe('UsersComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it(`should have a list of users`, fakeAsync(() => {
-        spyOn(userService, 'getUsers').and.returnValue(timer(1000).pipe(mapTo([fakeUser])));
-        // spyOn(userService, 'getUsers').and.returnValue(of([fakeUser]));
+    it(`should have a list of users`, (done) => {
+        // const spy = spyOn(userService, 'getUsers').and.returnValue(of([fakeUser]));
+        const spy = spyOn(userService, 'getUsers').and.returnValue(timer(1000).pipe(mapTo([fakeUser])));
         component.ngOnInit();
         component.users$.subscribe(users => {
+            console.log(users);
+            expect(users).toEqual([fakeUser]);
+            done();
+        });
+    });
+
+    it(`should have a list of users`, async(() => {
+        // const spy = spyOn(userService, 'getUsers').and.returnValue(of([fakeUser]));
+        const spy = spyOn(userService, 'getUsers').and.returnValue(timer(1000).pipe(mapTo([fakeUser])));
+        component.ngOnInit();
+        fixture.detectChanges();
+        component.users$.subscribe(users => {
+            // console.log(users);
+            // console.log(document.querySelector('app-user-list').innerHTML);
             expect(users).toEqual([fakeUser]);
         });
-        tick(1000);
-        discardPeriodicTasks();
-    }));
 
-    it(`should have a list of users in the DOM`, async(() => {
-        spyOn(userService, 'getUsers').and.returnValue(timer(1000).pipe(mapTo([fakeUser])));
-        // spyOn(userService, 'getUsers').and.returnValue(of([fakeUser]));
-        component.ngOnInit();
-        fixture.detectChanges()
-        // console.log(document.querySelector('app-user-list').innerHTML);
-        // console.log(buttons);
         fixture.whenStable().then(() => {
             fixture.detectChanges();
-            const buttons = fixture.debugElement.queryAll(By.css('button'));
-            expect(buttons[1].nativeElement.textContent).toEqual('fake');
+            const buttons = fixture.debugElement.queryAll(By.css('.user-button'));
+            expect(buttons[0].nativeElement.textContent).toEqual('fake');
         });
+
     }));
 });

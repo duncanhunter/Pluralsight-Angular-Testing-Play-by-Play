@@ -20,9 +20,11 @@ describe('Users Page', () => {
     await browser.wait(EC.presenceOf(await page.getInputField()));
     await page.getInputField().clear();
     await page.getInputField().sendKeys('duncan2');
-    await page.getSubmitButton().click();
+    await page.clickSubmitButton();
     await browser.wait(EC.presenceOf(await page.getFirstUser()));
-    expect(await page.getFirstUser().getText()).toEqual('duncan2');
+    browser.sleep(2000);
+    const userName = await page.getFirstUser().getText();
+    expect(userName).toEqual('duncan2');
   });
 
 });

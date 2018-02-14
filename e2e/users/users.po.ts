@@ -17,7 +17,7 @@ export class UsersPage {
     return element(by.css('input'));
   }
 
-  getSubmitButton() {
-    return element(by.css('button'));
+  clickSubmitButton() {
+    return element(by.css('button')).click();
   }
 }

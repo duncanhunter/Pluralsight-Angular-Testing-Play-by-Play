@@ -1,17 +1,17 @@
 import { AppComponent } from './app.component';
 
 describe(`App Component`, () => {
-    let component;
+    let component: AppComponent;
 
     beforeEach(() => {
         component = new AppComponent();
     });
 
-    it(`should add 1 + 1`, () => {
+    it(`should 1 + 1`, () => {
         expect(1 + 1).toEqual(2);
     });
 
-    it(`should have an App Component`, () => {
+    it(`should have a component`, () => {
         expect(component).toBeTruthy();
     });
 
@@ -19,6 +19,27 @@ describe(`App Component`, () => {
         expect(component.title).toEqual('app');
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
