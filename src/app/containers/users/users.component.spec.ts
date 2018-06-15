@@ -88,7 +88,7 @@ describe('UsersComponent', () => {
             providers: [
                 UserService,
                 { provide: HttpClient, useValue: {} }],
-            // schemas: [NO_ERRORS_SCHEMA]
+            schemas: [NO_ERRORS_SCHEMA]
         })
             .compileComponents();
     }));
