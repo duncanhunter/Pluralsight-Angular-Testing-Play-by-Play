@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install dependancies
 
-Run ```npm install``
+Run `npm install`
 
 ## Start fake JSON Server API
 
